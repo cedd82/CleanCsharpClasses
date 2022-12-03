@@ -25,9 +25,9 @@ foreach (var file in files2)
 
     var regexCtorString = @"^\s*public " + className + @".[\s*.*\{\w=\(\),;}]*";
     var removeCtorRegex = new Regex(regexCtorString, RegexOptions.IgnoreCase | RegexOptions.Multiline);
-
-    var isMatch = removeCtorRegex.IsMatch(allText);
-    allText = removeCtorRegex.Replace(allText, "");
+    bool isMatch = false;
+    isMatch = removeCtorRegex.IsMatch(allText);
+    //allText = removeCtorRegex.Replace(allText, "");
 
 
     //remove tostring
@@ -72,6 +72,12 @@ foreach (var file in files2)
     var removeIEnumRegex = new Regex(removeIEnum, RegexOptions.IgnoreCase | RegexOptions.Multiline);
     isMatch = removeIEnumRegex.IsMatch(allText);
     allText = removeIEnumRegex.Replace(allText, "");
+
+    var removeHeaderComment = @"^/[\*\r\n\s\w\.\/:-]*\n";
+    var removeHeaderCommentRegex = new Regex(removeIEnum, RegexOptions.IgnoreCase | RegexOptions.Multiline);
+    isMatch = removeHeaderCommentRegex.IsMatch(allText);
+    allText = removeHeaderCommentRegex.Replace(allText, "");
+
 
     var outFileName = fileInfo.Name;
     var outFileNameTemp = fileInfo.Name + "tmp";
