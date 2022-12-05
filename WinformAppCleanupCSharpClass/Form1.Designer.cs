@@ -33,14 +33,14 @@ partial class Form1
             this.txtOutput = new System.Windows.Forms.TextBox();
             this.txtInputFolder = new System.Windows.Forms.TextBox();
             this.btnProcessFolder = new System.Windows.Forms.Button();
+            this.btnRename = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnProcess
             // 
-            this.btnProcess.Location = new System.Drawing.Point(14, 855);
-            this.btnProcess.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProcess.Location = new System.Drawing.Point(12, 641);
             this.btnProcess.Name = "btnProcess";
-            this.btnProcess.Size = new System.Drawing.Size(86, 31);
+            this.btnProcess.Size = new System.Drawing.Size(75, 23);
             this.btnProcess.TabIndex = 0;
             this.btnProcess.Text = "button1";
             this.btnProcess.UseVisualStyleBackColor = true;
@@ -48,51 +48,59 @@ partial class Form1
             // 
             // txtInput
             // 
-            this.txtInput.Location = new System.Drawing.Point(14, 36);
-            this.txtInput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtInput.Location = new System.Drawing.Point(12, 27);
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
-            this.txtInput.Size = new System.Drawing.Size(630, 312);
+            this.txtInput.Size = new System.Drawing.Size(552, 235);
             this.txtInput.TabIndex = 1;
             // 
             // txtOutput
             // 
-            this.txtOutput.Location = new System.Drawing.Point(14, 456);
-            this.txtOutput.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtOutput.Location = new System.Drawing.Point(12, 342);
             this.txtOutput.Multiline = true;
             this.txtOutput.Name = "txtOutput";
-            this.txtOutput.Size = new System.Drawing.Size(630, 312);
+            this.txtOutput.Size = new System.Drawing.Size(552, 235);
             this.txtOutput.TabIndex = 2;
             // 
             // txtInputFolder
             // 
-            this.txtInputFolder.Location = new System.Drawing.Point(825, 402);
+            this.txtInputFolder.Location = new System.Drawing.Point(722, 302);
+            this.txtInputFolder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtInputFolder.Name = "txtInputFolder";
-            this.txtInputFolder.Size = new System.Drawing.Size(125, 27);
+            this.txtInputFolder.Size = new System.Drawing.Size(110, 23);
             this.txtInputFolder.TabIndex = 3;
             // 
             // btnProcessFolder
             // 
-            this.btnProcessFolder.Location = new System.Drawing.Point(825, 454);
-            this.btnProcessFolder.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnProcessFolder.Location = new System.Drawing.Point(722, 340);
             this.btnProcessFolder.Name = "btnProcessFolder";
-            this.btnProcessFolder.Size = new System.Drawing.Size(171, 31);
+            this.btnProcessFolder.Size = new System.Drawing.Size(150, 23);
             this.btnProcessFolder.TabIndex = 4;
             this.btnProcessFolder.Text = "processFolder";
             this.btnProcessFolder.UseVisualStyleBackColor = true;
             this.btnProcessFolder.Click += new System.EventHandler(this.btnProcessFolder_Click);
             // 
+            // btnRename
+            // 
+            this.btnRename.Location = new System.Drawing.Point(682, 142);
+            this.btnRename.Name = "btnRename";
+            this.btnRename.Size = new System.Drawing.Size(150, 23);
+            this.btnRename.TabIndex = 5;
+            this.btnRename.Text = "renameStuff";
+            this.btnRename.UseVisualStyleBackColor = true;
+            this.btnRename.Click += new System.EventHandler(this.btnRename_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1313, 901);
+            this.ClientSize = new System.Drawing.Size(1149, 676);
+            this.Controls.Add(this.btnRename);
             this.Controls.Add(this.btnProcessFolder);
             this.Controls.Add(this.txtInputFolder);
             this.Controls.Add(this.txtOutput);
             this.Controls.Add(this.txtInput);
             this.Controls.Add(this.btnProcess);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -107,4 +115,5 @@ partial class Form1
     private TextBox txtOutput;
     private TextBox txtInputFolder;
     private Button btnProcessFolder;
+    private Button btnRename;
 }

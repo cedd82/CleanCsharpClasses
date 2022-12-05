@@ -55,11 +55,17 @@ public partial class Form1 : Form
     {
         var folder = txtInputFolder.Text;
         folder = @"C:\code\cyberSourceAll\cybersource-rest-client-dotnetstandard\cybersource-rest-client-netstandard\cybersource-rest-client-netstandard\Model";
+        folder = @"C:\devMe\cyberSourceAll\cybersource-rest-client-dotnetstandard\cybersource-rest-client-netstandard\cybersource-rest-client-netstandard\Model";
+        folder = @"C:\devMe\cyberSourceAll\cybersource-rest-client-dotnetstandard\cybersource-rest-client-netstandard\cybersource-rest-client-netstandardMe\Model";
         var di = new DirectoryInfo(folder);
         if (!di.Exists)
             return;
 
         var ticks = DateTime.Now.Ticks;
+
+
+        //var ns = DateTime.Now.ToString("yyyyMMddfff");
+
         var outDirStr = $@"c:\temp\cybersource-rest-client-netstandard\Model{ticks}";
         DirectoryInfo outFolder = Directory.CreateDirectory(outDirStr);
 
@@ -92,10 +98,47 @@ public partial class Form1 : Form
 ";
         var csProjFilePath = Path.Combine(outDirStr, $"{DateTime.Now.Ticks}Models.csproj");
         File.WriteAllText(csProjFilePath, projFileContent);
+        
+        var entryMethod = """
+            internal class Entry
+            {
+                public static void Main(string[] args)
+                {
+
+                }
+            }
+            """;
+        var mainPath = Path.Combine(outDirStr, $"Entry.cs");
+        File.WriteAllText(mainPath, entryMethod);
 
 
 
         Process.Start("explorer.exe", outFolder.FullName);
+    }
+
+    private void btnRename_Click(object sender, EventArgs e)
+    {
+        var folder = @"C:\temp\cybersource-rest-client-netstandard\Model638058469904799913\Response";
+        var di = new DirectoryInfo(folder);
+        var files = di.GetFiles();
+        foreach (FileInfo f in files)
+        {
+            File.Move(f.FullName, f.FullName.Replace("PtsV2PaymentsPost201Response", ""));
+            f.Delete();
+        }
+        //foreach (FileInfo fi in files)
+        //{
+        //    var existingFileName = fi.FullName;
+        //    var prefix = "Ptsv2payments";
+            
+        //    if (existingFileName.StartsWith(prefix))
+        //    {
+        //        var newFileName = existingFileName.Replace(prefix, "");
+        //        File.Move(existingFileName, newFileName); // Rename the oldFileName into newFileName
+        //        File.Delete(newFileName); // Delete the existing file if exists
+
+        //    }
+        //}
     }
 }
 
